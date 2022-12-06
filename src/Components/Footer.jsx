@@ -1,12 +1,14 @@
 import React from 'react'
+import DH from "../images/DH.png"
+
 
 
 const Footer = () => {
   return (
-    // <div className= "footer">
+    
     <footer>
         <p>Powered by</p>
-        <img src="../../public/images/DH.png" alt='DH-logo' />
+        <img src={DH} alt='DH-logo' />
     </footer>
    
   )

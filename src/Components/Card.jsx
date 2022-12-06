@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { useContextGlobal } from "./utils/ContextProvider";
+import Doctor from "../images/doctor.jpg"
 
 const Card = ({ od}) => {
 
@@ -21,10 +22,10 @@ const Card = ({ od}) => {
   return (
     <div className="card">
       <Link to={"/detail/" + od.id}>
-        <h2>{od.name}</h2>
+        <h3>{od.name}</h3>
       </Link>
-      <img src="../../public/images/doctor.jpg" alt="" />
-      <h4>{od.username}</h4>
+      <img className="doctor" src={Doctor} alt="" />
+      <h5>{od.username}</h5>
       <p>ID {od.id}</p>
 
       {/* En cada card deberan mostrar en name - username y el id */}
