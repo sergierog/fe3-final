@@ -3,21 +3,12 @@ import { TextField, Typography, Button } from "@mui/material";
 import { useFormik } from "formik";
 import { useState } from "react";
 
-// const style = {
-// 	position: "absolute",
-// 	top: "50%",
-// 	left: "50%",
-// 	transform: "translate(-50%, -50%)",
-// 	width: 400,
-// 	bgcolor: "background.paper",
-// 	border: "2px solid #000",
-// 	boxShadow: 24,
-// 	p: 4,
-// };
+
 
 const Form = () => {
   const [sentForm, setSentForm] = useState(false);
   const [name, setName] = useState();
+  
 
   //Aqui deberan implementar el form completo con sus validaciones
   let initialValues = {
@@ -30,7 +21,7 @@ const Form = () => {
     setSentForm(true);
     setTimeout(() => {
       setSentForm(false);
-    }, 3000);
+    }, 5000);
   };
 
   let validate = (valores) => {
@@ -73,8 +64,10 @@ const Form = () => {
             height: "400px",
           }}
           onSubmit={handleSubmit}
+          
+         
         >
-          <Typography variant="h6" color="primary">
+          <Typography variant="h6" color="black" >
             Contactanos
           </Typography>
           <TextField
@@ -86,6 +79,7 @@ const Form = () => {
             onChange={handleChange}
             value={values.name}
             onBlur={handleBlur}
+            
           />
           {touched.name && errors.name && (
             <div className="error">{errors.name}</div>
@@ -108,18 +102,19 @@ const Form = () => {
           <Button
             type="submit"
             variant="contained"
-            color="primary"
+            color="info"
             onClick={(e) => {
               setName(values.name);
             }}
           >
             Agregar
           </Button>
-          {sentForm && (
-            <p>Gracias {name}, te contactaremos cuando antes vía mail</p>
-          )}
+          
         </form>
       </div>
+      {sentForm && (
+            <p>Gracias {name}, te contactaremos cuanto antes vía mail</p>
+          )}
     </div>
   );
 };

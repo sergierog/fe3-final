@@ -6,24 +6,16 @@ import Detail from "./Routes/Detail";
 import Contact from "./Routes/Contact";
 import Favs from "./Routes/Favs";
 import {
-  ContextGlobal,
-  initialState,
+  
   useContextGlobal,
 } from "./Components/utils/ContextProvider";
 
 function App() {
-  const { theme, setTheme, odontologos } = useContextGlobal();
-  const handleChangeTheme = () => {
-    if (theme === initialState.themes.light) {
-      setTheme(initialState.themes.dark);
-    } else {
-      setTheme(initialState.themes.light);
-    }
-  };
+  const { theme } = useContextGlobal();
+
   return (
     <>
       <div className={theme.className}>
-        <ContextGlobal.Provider value={{theme, handleChangeTheme, odontologos}}>
         <Navbar />
 
         <Routes>
@@ -35,7 +27,6 @@ function App() {
         </Routes>
 
         <Footer />
-        </ContextGlobal.Provider>
       </div>
     </>
   );

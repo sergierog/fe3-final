@@ -19,6 +19,13 @@ export const ContextGlobal = createContext(undefined);
   //Aqui deberan implementar la logica propia del Context, utilizando el hook useMemo
   const [odontologos, setOdontologos] = useState([])
   const [theme, setTheme] = useState(initialState.themes.light)
+  const handleChangeTheme = () => {
+    if (theme === initialState.themes.light) {
+      setTheme(initialState.themes.dark);
+    } else {
+      setTheme(initialState.themes.light);
+    }
+  };
   
 
   useEffect(() => {
@@ -33,7 +40,7 @@ export const ContextGlobal = createContext(undefined);
   
 
   return (
-    <ContextGlobal.Provider value={{odontologos, theme, setTheme}}>
+    <ContextGlobal.Provider value={{odontologos, theme, setTheme, handleChangeTheme}}>
       {children}
     </ContextGlobal.Provider>
   );
