@@ -13,7 +13,7 @@ const Home = () => {
   
 
   return (
-    <main className="" >
+    <main >
       <h1>Home</h1>
       <div className='card-grid'>
        
